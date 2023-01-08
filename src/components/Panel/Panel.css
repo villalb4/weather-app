@@ -1,13 +1,15 @@
 .Panel {
   max-width: 459px;
   background-color: var(--tone-background);
+  height: 100vh;
+  overflow: hidden;
 }
 
 .Panel_top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 42px 46px;
+  padding: 42px 46px 21px 46px;
 }
 
 .Panel_searchButton {
@@ -27,12 +29,79 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 40px;
   background-color: #6E707A;
   border-radius: 50%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: none;
   outline: none;
+  padding: 8.5px 8.49px 8.5px 8.49px;
   cursor: pointer;
 }
+
+
+/* ----------- PANEL MID ------------ */
+.Panel_mid {
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: auto;
+  height: 500px;
+  position: relative;
+  padding-top: 88px ;
+  text-align: center;
+}
+
+.Panel_divTemp {
+  margin: 87px 0;
+}
+.Panel_temp {
+  font-weight: 500;
+  font-size: 144px;
+  line-height: 169px;
+  color: #E7E7EB;
+}
+
+.Panel_weatherDescription {
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
+  color: #A09FB1;
+}
+
+.Panel_midBackground {
+  position: absolute;
+  top: 0px;
+  right: -113.5px;
+  opacity: 0.05;
+}
+
+/* ----------- PANEL BOTTOM ------------ */
+.Panel_bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  max-width: 190px;
+  margin: 0 auto;
+}
+.Panel_divDate {
+  display: flex;
+  gap: 16px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 21px;
+  color: #88869D;  
+}
+.Panel_divLocation {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 52px;
+}
+.Panel_location {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #88869D;
+  margin-top: 2px;
+}
+
