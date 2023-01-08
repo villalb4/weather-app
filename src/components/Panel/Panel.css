@@ -1,0 +1,38 @@
+.Panel {
+  max-width: 459px;
+  background-color: var(--tone-background);
+}
+
+.Panel_top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 42px 46px;
+}
+
+.Panel_searchButton {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #E7E7EB;
+  background: #6E707A;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 11px 18px 10px 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.Panel_myLocation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+  background-color: #6E707A;
+  border-radius: 50%;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
