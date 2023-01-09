@@ -1,14 +1,31 @@
-import React from 'react'
 import './Panel.css'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { getGeolocationData } from '../../redux/thunks/getData'
 // ------ icons/images ------ 
-import my_location from '../../assets/icons/my_location.png'
-import pint_drop from '../../assets/icons/pin_drop.png'
+import pint_drop from '../../assets/icons/pint_drop.svg'
+import geolocation from '../../assets/icons/geolocation.svg'
 import cloud_background from '../../assets/representation/Cloud-background.png'
 
 function Panel() {
 
+  const dispatch = useDispatch()
+
   const weather = useSelector(e => e.weather.weather)
+
+  const handleLocation = () => {
+    if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const myCoords = {
+          lat: position.coords.latitude,
+          lon: position.coords.longitude
+        }
+        console.log(position)
+        // dispatch(getGeolocationData(myCoords))
+      })
+    } else {
+      alert('your browser does not support geolocation')
+    } 
+  }
 
   return (
     <div className='Panel'>
@@ -18,16 +35,16 @@ function Panel() {
           <button className='Panel_searchButton'>Search for places</button>
         </div>
         <div className='Panel_divMyLocation'>
-          <button className='Panel_myLocation'>
-            <img src={my_location} alt="" />
+          <button className='Panel_myLocation' onClick={handleLocation}>
+            <img className='Panel_myLocationIcon' src={geolocation} alt="" />
           </button>
         </div>
       </div>
       {/* ---- mid panel ---- */}
-      <div 
-        className='Panel_mid'
-      >
-        <div className='Panel_divWeatherImage'></div>
+      <div className='Panel_mid'>
+        <div className='Panel_divWeatherImage'>
+          <img className='Panel_weatherImage' src={weather.weatherImage} alt="" />
+        </div>
         <div className='Panel_divTemp'>
           <span className='Panel_temp'>{weather.temp}</span>
         </div>
@@ -47,7 +64,7 @@ function Panel() {
         </div>
         <div className='Panel_divLocation'>
           <div>
-            <img src={pint_drop} alt="" />
+            <img className='Panel_pintDropIcon' src={pint_drop} alt="" />
           </div>
           <span className='Panel_location'>{weather.name}</span>
         </div>
