@@ -60,21 +60,23 @@
 
 .Panel_divWeatherImage {
   height: 234px;
+  pointer-events: none;
 }
 
-/* .Panel_weatherImage {
-  height: 50px;
-  width: 50px;
-} */
-
 .Panel_divTemp {
-  margin: 87px 0;
+  margin: 87px 21px 87px 0;
 }
 .Panel_temp {
   font-weight: 500;
   font-size: 144px;
   line-height: 169px;
   color: #E7E7EB;
+}
+.Panel_tempGrados {
+  font-weight: 500;
+  font-size: 48px;
+  line-height: 56.35px;
+  color: #A09FB1;
 }
 
 .Panel_weatherDescription {
@@ -95,10 +97,11 @@
 
 /* ----------- PANEL BOTTOM ------------ */
 .Panel_bottom {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 32px;
+  gap: 32px; */
+  text-align: center;
   max-width: 190px;
   margin: 0 auto;
 }
@@ -113,18 +116,20 @@
 
 .Panel_pintDropIcon {
   width: 24px;
+  pointer-events: none;
 }
 
 .Panel_divLocation {
   display: flex;
   gap: 4px;
-  margin-bottom: 52px;
+  justify-content: center;
+  margin: 31px 20px 46px 0;
 }
 .Panel_location {
   font-weight: 600;
   font-size: 18px;
   line-height: 21px;
   color: #88869D;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
