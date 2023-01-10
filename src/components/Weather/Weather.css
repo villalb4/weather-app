@@ -1,0 +1,115 @@
+.Weather {
+  max-width: 764px;
+  width: 100%;
+  margin: 42px auto 0 auto;
+  padding: 0 30px;
+}
+
+.Weather_top {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  padding-right: 2px;
+}
+.Weather_divC, .Weather_divF {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 40px;
+  background-color: #585676;
+  border-radius: 50%;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  color: #E7E7EB;
+}
+
+/* ------ Mid ------ */
+.Weather_mid {
+  height: 177px;
+  margin: 66px 0 72px 0;
+  background-color: #1E213A;
+}
+
+/* ------ Bottom ------ */
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #E7E7EB;
+}
+
+.Weather_divInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 48px;
+  grid-row-gap: 48px;
+  margin-top: 32px;
+  /* margin-bottom: 113px; */
+}
+.Weather_windInfo, .Weather_humidityInfo, .Weather_visibilityInfo {
+  max-width: 328px;
+  width: 100%;
+  background-color: #1E213A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 0 31px 0;
+}
+.Weather_visibilityInfo {
+  height: 159px;
+}
+
+.Weather_infoTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #E7E7EB;
+  margin: 0 0 6px 10px;
+}
+
+.Weather_divInfoData {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 75px;
+  color: #E7E7EB;
+  margin-left: 10px;
+}
+.Weather_divInfoData.gap > .Weather_data {
+  margin-right: 18px;
+}
+
+.Weather_extent {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 42.26px;
+  color: #E7E7EB;
+}
+
+.Weather_divWindDirection {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 22px;
+  margin-left: 4.5px;
+}
+.Weather_windDir {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 16px;
+  color: #E7E7EB;
+}
+.Weather_divWindIcon, .Weather_divWindIcon > img {
+  height: 29.49px;
+  width: 29.49px;
+  pointer-events: none;
+}
+.Weather_divWindIcon {
+  background: #ffffff4d;
+  border-radius: 50%;
+}
