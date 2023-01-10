@@ -31,7 +31,7 @@ function Panel() {
       {/* ---- top panel ---- */}
       <div className='Panel_top'>
         <div className="Panel_divSearchButton">
-          <button className='Panel_searchButton'>Search for places</button>
+          <button className='Panel_searchButton'>Seach for places</button>
         </div>
         <div className='Panel_divMyLocation'>
           <button className='Panel_myLocation' onClick={handleLocation}>
