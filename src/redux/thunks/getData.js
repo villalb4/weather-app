@@ -1,6 +1,7 @@
 import { setWeather } from "../slices/weather";
 import imageWeather from "../../adapters/imageWeather";
 import getDay from "../../utils/date";
+import { current } from "@reduxjs/toolkit";
 
 export const getData = (location = "Helsinki") => {
   return async (dispatch, getState) => {
@@ -39,8 +40,16 @@ export const getData = (location = "Helsinki") => {
 
 export const getFiveDaysData = () => {
   return async (dispatch, state) => {
-    // const apiData = await fetch('http://api.openweathermap.org/data/2.5/forecast?q=helsinki&appid=a426f3247ba44fff7480f8827c8fd1ca')
+
+    const currentCity = state().weather.weather.name || "Helsinki"
+
+    // const apiData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=&${process.env.REACT_APP_WEATHERAPI_KEY}&q="helsinki"&days=5&aqi=yes&alerts=no`, {
+    //    "Content-Type": "application/json",
+    //    method: "GET"
+    // })
     // const response = await apiData.json()
+
+    // console.log(response)
   }
 }
 
