@@ -19,8 +19,7 @@ function Panel() {
           lat: position.coords.latitude,
           lon: position.coords.longitude
         }
-        console.log(position)
-        // dispatch(getGeolocationData(myCoords))
+        dispatch(getGeolocationData(myCoords))
       })
     } else {
       alert('your browser does not support geolocation')
@@ -46,7 +45,8 @@ function Panel() {
           <img className='Panel_weatherImage' src={weather.weatherImage} alt="" />
         </div>
         <div className='Panel_divTemp'>
-          <span className='Panel_temp'>{weather.temp}</span>
+          <span className='Panel_temp'>{weather.temp_c}</span>
+          <span className='Panel_tempGrados'>{weather.temp_c ? "°C" : "°F"}</span>
         </div>
         <div className='Panel_divWeatherDescription'>
           <span className='Panel_weatherDescription'>{weather.weather}</span>
