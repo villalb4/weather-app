@@ -1,3 +1,9 @@
 .App {
+  display: flex;
+  gap: 30px;
   background-color: var(--background);
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
