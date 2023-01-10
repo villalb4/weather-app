@@ -1,42 +1,39 @@
 import { setWeather } from "../slices/weather";
 import imageWeather from "../../adapters/imageWeather";
+import getDay from "../../utils/date";
 
-export const getData = () => {
+export const getData = (location = "Helsinki") => {
   return async (dispatch, getState) => {
     // Obetiendo la data de una locacion 
-    const apiData = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=madrid&APPID=${process.env.REACT_APP_API_KEY}&units=metric`)
+    const apiData = await fetch(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHERAPI_KEY}&q=${location}&aqi=no`, {
+      headers: { "Content-Type": "application/json" }
+    })
     const response = await apiData.json()
 
-    // obteniendo la fecha actual en fomato: "dia, numero, mes"
-    const date = new Date()
-    const hoy = date.toUTCString().slice(0, -18)
+    // formateando la respuesta para filtrar los datos que necesito
+    const filteredResponse = {
+      weather: response.current.condition.text,
+      country: response.location.country,
+      humidity: response.current.humidity,
+      id: response.location.tz_id,
+      lat: response.location.lat,
+      lon: response.location.lon,
+      name: response.location.name,
+      pressure: response.current.pressure_mb,
+      temp_f: Math.floor(response.current.temp_f),
+      temp_c: Math.floor(response.current.temp_c),
+      visibility: response.current.vis_miles,
+      wind: response.current.wind_mph,
+      wind_dir: response.current.wind_dir,
+      toDay: getDay(),
+      weatherImage: imageWeather(response.current.condition.text)
+    }
 
-    // como la respuesta es un objeto, la convierto en array para
-    // formatear los datos (filtrar solo los que necesito)
-    const responseArray = [0].map(e => response)
+    // formas de convertir el objeto en array para iterar
+    // const responseArray = [response].map(e => e) <----
+    // const responseArray = [0].map(e => response[e]) <----
 
-    const formatResponse = responseArray.map(e => {
-      return {
-            weather: e.weather[0].main,
-            description: e.weather[0].description,
-            country: e.sys.country,
-            humidity: e.main.humidity,
-            id: e.id,
-            lat: e.coord.lat,
-            lon: e.coord.lon,
-            name: e.name,
-            pressure: e.main.pressure,
-            temp: Math.floor(e.main.temp),
-            visibility:e.visibility,
-            wind: e.wind.speed,
-            toDay: hoy,
-            weatherImage: imageWeather(e.weather[0].main)
-          }
-        })
-
-        // console.log(formatResponse[0])
-
-    dispatch(setWeather(formatResponse[0]))
+    dispatch(setWeather(filteredResponse))
   }
 }
 
@@ -49,43 +46,31 @@ export const getFiveDaysData = () => {
 
 export const getGeolocationData= (coords) => {
   return async (dispatch, getState) => {
-    // console.log(coords)
-
     // Obetiendo la data de mi geolocalizacion
-    const apiData = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${coords.lat}&lon=${coords.lon}.15&cnt=3&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
+    const apiData = await fetch(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHERAPI_KEY}&q=${coords.lat},${coords.lon}&aqi=no`, {
+      headers: { "Content-Type": "application/json" }
+    })
     const response = await apiData.json()
 
-    console.log(response)
+    // formateando la respuesta para filtrar los datos que necesito
+    const filteredResponse = {
+      weather: response.current.condition.text,
+      country: response.location.country,
+      humidity: response.current.humidity,
+      id: response.location.tz_id,
+      lat: response.location.lat,
+      lon: response.location.lon,
+      name: response.location.name,
+      pressure: response.current.pressure_mb,
+      temp_f: Math.floor(response.current.temp_f),
+      temp_c: Math.floor(response.current.temp_c),
+      visibility: response.current.vis_miles,
+      wind: response.current.wind_mph,
+      wind_dir: response.current.wind_dir,
+      toDay: getDay(),
+      weatherImage: imageWeather(response.current.condition.text)
+    }
 
-    // obteniendo la fecha actual en fomato: "dia, numero, mes"
-    // const date = new Date()
-    // const hoy = date.toUTCString().slice(0, -18)
-
-    // como la respuesta es un objeto, la convierto en array para
-    // formatear los datos (filtrar solo los que necesito)
-    // const responseArray = [0].map(e => response)
-
-    // const formatResponse = responseArray.map(e => {
-      // return {
-    //         weather: e.weather[0].main,
-    //         description: e.weather[0].description,
-    //         country: e.sys.country,
-    //         humidity: e.main.humidity,
-    //         id: e.id,
-    //         lat: e.coord.lat,
-    //         lon: e.coord.lon,
-    //         name: e.name,
-    //         pressure: e.main.pressure,
-    //         temp: Math.floor(e.main.temp),
-    //         visibility:e.visibility,
-    //         wind: e.wind.speed,
-    //         toDay: hoy,
-    //         weatherImage: imageWeather(e.weather[0].main)
-    //       }
-    //     })
-
-        // console.log(formatResponse[0])
-
-    // dispatch(setWeather(formatResponse[0]))
+    dispatch(setWeather(filteredResponse))
   }
 }
