@@ -1,12 +1,8 @@
 .Panel {
   max-width: 459px;
+  width: 100%;
   background-color: var(--tone-background);
-  height: 100vh;
   overflow: hidden;
-  overflow-y: scroll;
-}
-.Panel::-webkit-scrollbar {
-  display: none;
 }
 
 .Panel_top {
@@ -26,6 +22,7 @@
   padding: 11px 18px 10px 18px;
   border: none;
   outline: none;
+  width: 161px;
   cursor: pointer;
 }
 
