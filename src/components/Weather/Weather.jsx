@@ -47,6 +47,17 @@ function Weather() {
               <span className='Weather_data'>{weather.humidity}</span>
               <span className='Weather_extent'>%</span>
             </div>
+            <div className='Weather_divHumidityLevel'>
+              <div className='Weather_divExtent'>
+                <span className='Weather_humidityExtent'>0</span>
+                <span className='Weather_humidityExtent'>50</span>
+                <span className='Weather_humidityExtent'>100</span>
+              </div>
+              <div className='Weather_humidityBackLevel'>
+                <div className='Weather_humidityLevel' style={{width: `${weather.humidity}%`}}></div>
+              </div>
+              <span className='Weather_humidityFianl'>%</span>
+            </div>
           </div>
           {/* -- visibility -- */}
           <div className='Weather_visibilityInfo'>
