@@ -1,85 +1,67 @@
-import { setWeather } from "../slices/weather";
+import { setWeather, setForecast } from "../slices/weather";
 import imageWeather from "../../adapters/imageWeather";
+import weatherApiAdapter from "../../adapters/weatherApiResponse";
 import getDay from "../../utils/date";
-import { current } from "@reduxjs/toolkit";
+
+export const getFiveDaysData = (currentCity) => {
+  return async (dispatch, state) => {
+    const apiData = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
+    const response = await apiData.json()
+
+    // todo esto para que el array este acomodado a partir de la fecha de hoy
+    // const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+    // const hoy = new Date().getDay()
+    // const forecastDay = week.slice(hoy, week.length).concat(week.slice(0, hoy))
+
+    // 5 days forecast
+    const fiveDays = response.list.filter((e, i) => {
+      if(e.dt_txt.slice(11, 13) === "12") {
+        return e
+      } 
+    })
+
+    // filtrando array para que me de los datos que necesito
+    const filteredArray = fiveDays.map(e => {
+      return {
+        date: e.dt_txt.slice(0, 10),
+        weather: e.weather[0].main,
+        temp_max: e.main.temp_max,
+        temp_min: e.main.temp_min,
+      }
+    })
+
+    dispatch(setForecast(filteredArray))
+  }
+}
 
 export const getData = (location = "Helsinki") => {
   return async (dispatch, getState) => {
-    // Obetiendo la data de una locacion 
     const apiData = await fetch(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHERAPI_KEY}&q=${location}&aqi=no`, {
       headers: { "Content-Type": "application/json" }
     })
     const response = await apiData.json()
 
-    // formateando la respuesta para filtrar los datos que necesito
-    const filteredResponse = {
-      weather: response.current.condition.text,
-      country: response.location.country,
-      humidity: response.current.humidity,
-      id: response.location.tz_id,
-      lat: response.location.lat,
-      lon: response.location.lon,
-      name: response.location.name,
-      pressure: response.current.pressure_mb,
-      temp_f: Math.floor(response.current.temp_f),
-      temp_c: Math.floor(response.current.temp_c),
-      visibility: response.current.vis_miles,
-      wind: response.current.wind_mph,
-      wind_dir: response.current.wind_dir,
-      toDay: getDay(),
-      weatherImage: imageWeather(response.current.condition.text)
-    }
+    const filteredResponse = weatherApiAdapter(response)
 
     // formas de convertir el objeto en array para iterar
     // const responseArray = [response].map(e => e) <----
     // const responseArray = [0].map(e => response[e]) <----
-
+    // console.log(filteredResponse)
     dispatch(setWeather(filteredResponse))
-  }
-}
-
-export const getFiveDaysData = () => {
-  return async (dispatch, state) => {
-
-    const currentCity = state().weather.weather.name || "Helsinki"
-
-    // const apiData = await fetch(`http://api.weatherapi.com/v1/forecast.json?key=&${process.env.REACT_APP_WEATHERAPI_KEY}&q="helsinki"&days=5&aqi=yes&alerts=no`, {
-    //    "Content-Type": "application/json",
-    //    method: "GET"
-    // })
-    // const response = await apiData.json()
-
-    // console.log(response)
+    dispatch(getFiveDaysData(filteredResponse.name))
   }
 }
 
 export const getGeolocationData= (coords) => {
   return async (dispatch, getState) => {
-    // Obetiendo la data de mi geolocalizacion
     const apiData = await fetch(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHERAPI_KEY}&q=${coords.lat},${coords.lon}&aqi=no`, {
       headers: { "Content-Type": "application/json" }
     })
     const response = await apiData.json()
 
-    // formateando la respuesta para filtrar los datos que necesito
-    const filteredResponse = {
-      weather: response.current.condition.text,
-      country: response.location.country,
-      humidity: response.current.humidity,
-      id: response.location.tz_id,
-      lat: response.location.lat,
-      lon: response.location.lon,
-      name: response.location.name,
-      pressure: response.current.pressure_mb,
-      temp_f: Math.floor(response.current.temp_f),
-      temp_c: Math.floor(response.current.temp_c),
-      visibility: response.current.vis_miles,
-      wind: response.current.wind_mph,
-      wind_dir: response.current.wind_dir,
-      toDay: getDay(),
-      weatherImage: imageWeather(response.current.condition.text)
-    }
+    const filteredResponse = weatherApiAdapter(response)
 
     dispatch(setWeather(filteredResponse))
+    dispatch(getFiveDaysData(filteredResponse.name))
   }
 }
