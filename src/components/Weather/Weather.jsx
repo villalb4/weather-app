@@ -6,6 +6,7 @@ import wind_dir from '../../assets/icons/wind_dir.svg'
 function Weather() {
 
   const weather = useSelector(e => e.weather.weather)
+  const forecast = useSelector(e => e.weather.forecast)
 
   return (
     <div className='Weather'>
@@ -20,7 +21,22 @@ function Weather() {
       </div>
       {/* ------ mid ------ */}
       <div className='Weather_mid'>
-        <span>cards mapeado</span>
+        {
+          forecast.map((e, i) => {
+            return (
+              <div key={i} className="Weather_divForecast">
+                <span>{e.date}</span>
+                <div>
+                  {e.weather}
+                </div>
+                <div>
+                  <span>{e.temp_max}</span>
+                  <span>{e.temp_min}</span>
+                </div>
+              </div>
+            )
+          })
+        }
       </div>
       {/* ------ bottom ------ */}
       <div className='Weather_bottom'>

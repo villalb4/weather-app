@@ -28,8 +28,12 @@
 
 /* ------ Mid ------ */
 .Weather_mid {
-  height: 177px;
+  display: flex;
+  justify-content: space-between;
   margin: 66px 0 72px 0;
+}
+.Weather_divForecast {
+  padding: 18px 10px;
   background-color: #1E213A;
 }
 
