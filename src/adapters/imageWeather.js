@@ -1,7 +1,6 @@
 import clear from '../assets/representation/Clear.png'
 import heavy_cloud from '../assets/representation/HeavyCloud.png'
 import snow from '../assets/representation/Snow.png'
-// import shower from '../assets/representation/Shower.png'
 import thunderstorm from '../assets/representation/Thunderstorm.png'
 import light_rain from '../assets/representation/LightRain.png'
 import heavy_rain from '../assets/representation/HeavyRain.png'
@@ -17,6 +16,7 @@ const imageWeather = (weather) => {
     weather === "Partly cloudy" ? heavy_cloud :
     weather === "Overcast" ? heavy_cloud :
     weather === "Mist" ? heavy_cloud :
+    weather === "Fog" ? heavy_cloud :
     weather === "Patchy rain possible" ? light_rain :
     weather === "Patchy light drizzle" ? light_rain :
     weather === "Light drizzle" ? light_rain :
@@ -29,7 +29,6 @@ const imageWeather = (weather) => {
     weather === "Patchy snow possible" ? snow :
     weather === "Blowing snow" ? snow :
     weather === "Blizzard" ? snow :
-    weather === "Fog" ? snow :
     weather === "Freezing fog" ? snow :
     weather === "Light snow" ? snow :
     weather === "Patchy moderate snow" ? snow :
