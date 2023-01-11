@@ -34,6 +34,10 @@
 }
 
 /* ------ Bottom ------ */
+.Weather_bottom {
+  margin-bottom: 68px;
+}
+
 h2 {
   font-weight: 700;
   font-size: 24px;
