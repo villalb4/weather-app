@@ -25,7 +25,7 @@ function Weather() {
           forecast.map((e, i) => {
             return (
               <div key={i} className="Weather_divForecast">
-                <span>{e.date}</span>
+                <span>{i === 0 ? "Tomorrow" : e.date}</span>
                 <div>
                   {e.weather}
                 </div>
