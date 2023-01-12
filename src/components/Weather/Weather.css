@@ -33,9 +33,45 @@
   margin: 66px 0 72px 0;
 }
 .Weather_divForecast {
-  padding: 18px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 0;
   background-color: #1E213A;
+  max-width: 120px;
+  width: 100%;
 }
+.Weather_forecastDay {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #E7E7EB;
+}
+
+.Weather_forecastDivImg {
+  height: 62px;
+  width:  56.44px;
+  margin: 9px 0 32px 0;
+}
+.Weather_forecastImg {
+  width:  56.44px;
+}
+
+.Weather_forecastDivMinMax {
+  display: flex;
+  gap: 16px;
+}
+.Weather_forecasMax, .Weather_forecasMin {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #E7E7EB;
+}
+.Weather_forecasMin {
+  color: #A09FB1;
+}
+
 
 /* ------ Bottom ------ */
 .Weather_bottom {
