@@ -25,13 +25,13 @@ function Weather() {
           forecast.map((e, i) => {
             return (
               <div key={i} className="Weather_divForecast">
-                <span>{i === 0 ? "Tomorrow" : e.date}</span>
-                <div>
-                  {e.weather}
+                <span className='Weather_forecastDay'>{i === 0 ? "Tomorrow" : e.date}</span>
+                <div className='Weather_forecastDivImg'>
+                  <img className='Weather_forecastImg' src={e.weather} alt="" />
                 </div>
-                <div>
-                  <span>{e.temp_max}</span>
-                  <span>{e.temp_min}</span>
+                <div className='Weather_forecastDivMinMax'>
+                  <span className='Weather_forecasMax'>{`${e.temp_max}°C`}</span>
+                  <span className='Weather_forecasMin'>{`${e.temp_min}°C`}</span>
                 </div>
               </div>
             )
