@@ -1,9 +1,9 @@
 .App {
   display: flex;
   gap: 30px;
-  background-color: var(--background);
   border-radius: 12px;
   overflow: hidden;
+  background-color: var(--background);
 }
 
 ::-webkit-scrollbar {
