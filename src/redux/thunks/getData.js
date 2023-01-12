@@ -1,34 +1,24 @@
 import { setWeather, setForecast } from "../slices/weather";
-import imageWeather from "../../adapters/imageWeather";
 import weatherApiAdapter from "../../adapters/weatherApiResponse";
-import getDay from "../../utils/date";
+import forecastAdapter from "../../adapters/fiveDays";
 
 export const getFiveDaysData = (currentCity) => {
   return async (dispatch, state) => {
     const apiData = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${currentCity}&appid=${process.env.REACT_APP_API_KEY}&units=metric`)
     const response = await apiData.json()
 
-    // todo esto para que el array este acomodado a partir de la fecha de hoy
+    // esto para que el array comience a partir de la fecha de hoy
     // const week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
     // const hoy = new Date().getDay()
     // const forecastDay = week.slice(hoy, week.length).concat(week.slice(0, hoy))
 
-    // 5 days forecast
-    const fiveDays = response.list.filter((e, i) => {
+    const fiveDays = response.list.filter((e) => {
       if(e.dt_txt.slice(11, 13) === "12") {
         return e
       } 
     })
-
-    // filtrando array para que me de los datos que necesito
-    const filteredArray = fiveDays.map(e => {
-      return {
-        date: e.dt_txt.slice(0, 10),
-        weather: e.weather[0].main,
-        temp_max: e.main.temp_max,
-        temp_min: e.main.temp_min,
-      }
-    })
+    
+    const filteredArray = forecastAdapter(fiveDays)
 
     dispatch(setForecast(filteredArray))
   }
