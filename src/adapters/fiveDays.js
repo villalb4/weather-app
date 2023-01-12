@@ -1,3 +1,5 @@
+import forecastImageWeather from "./forecastImageWeather"
+
 const forecastAdapter = (data) => {
   return data.map((e, i) => {
     // Obtengo la fecha a partir de mañana en formato UTC.
@@ -17,9 +19,9 @@ const forecastAdapter = (data) => {
 
     return {
       date: finalDate,
-      weather: e.weather[0].main,
-      temp_max: e.main.temp_max,
-      temp_min: e.main.temp_min,
+      weather: forecastImageWeather(e.weather[0].main),
+      temp_max: Math.round(e.main.temp_max),
+      temp_min: Math.round(e.main.temp_min),
     }
   })
 }
