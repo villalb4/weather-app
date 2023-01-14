@@ -58,9 +58,10 @@ function Weather() {
           </div>
           {/* -- Humidity -- */}
           <div className='Weather_humidityInfo'>
-            <span className='Weather_infoTitle'>Humidity</span>
-            <div className='Weather_divInfoData'>
-              <span className='Weather_data'>{weather.humidity}</span>
+            <span className='Weather_infoTitle humidity'>Humidity</span>
+            <div className='Weather_divInfoData humidity'>
+              {/* <span className='Weather_data'>{weather.humidity}</span> */}
+              <span className='Weather_data'>84</span>
               <span className='Weather_extent'>%</span>
             </div>
             <div className='Weather_divHumidityLevel'>
