@@ -94,7 +94,7 @@ h2 {
   margin-top: 32px;
   /* margin-bottom: 113px; */
 }
-.Weather_windInfo, .Weather_humidityInfo, .Weather_visibilityInfo {
+.Weather_windInfo, .Weather_visibilityInfo {
   max-width: 328px;
   width: 100%;
   background-color: #1E213A;
@@ -159,6 +159,22 @@ h2 {
 }
 
 /* -- Humidity -- */
+.Weather_humidityInfo {
+  max-width: 328px;
+  width: 100%;
+  background-color: #1E213A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 0 31px 0;
+}
+.Weather_infoTitle.humidity {
+  margin: 0px 0px 6px 3px;
+}
+.Weather_divInfoData.humidity {
+  margin-top: 5px;
+}
 .Weather_divHumidityLevel {
   max-width: 229px;
   width: 100%;
