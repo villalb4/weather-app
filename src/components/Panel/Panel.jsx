@@ -12,6 +12,8 @@ function Panel() {
 
   const weather = useSelector(e => e.weather.weather)
 
+  const degrees = useSelector(e => e.weather.degree)
+
   const handleLocation = () => {
     if(navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -45,8 +47,8 @@ function Panel() {
           <img className='Panel_weatherImage' src={weather.weatherImage} alt="" />
         </div>
         <div className='Panel_divTemp'>
-          <span className='Panel_temp'>{weather.temp_c}</span>
-          <span className='Panel_tempGrados'>{weather.temp_c ? "°C" : "°F"}</span>
+          <span className='Panel_temp'>{degrees === "°C" ? weather.temp_c : weather.temp_f}</span>
+          <span className='Panel_tempGrados'>{degrees}</span>
         </div>
         <div className='Panel_divWeatherDescription'>
           <span className='Panel_weatherDescription'>{weather.weather}</span>
