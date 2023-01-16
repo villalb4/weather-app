@@ -1,0 +1,142 @@
+.DayInfo {
+  margin-bottom: 68px;
+}
+
+h2 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  color: #E7E7EB;
+}
+
+.DayInfo_divInfo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 48px;
+  grid-row-gap: 48px;
+  margin-top: 32px;
+}
+.DayInfo_windInfo, .DayInfo_visibilityInfo {
+  max-width: 328px;
+  width: 100%;
+  background-color: #1E213A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 22px 0 31px 0;
+}
+.DayInfo_visibilityInfo {
+  height: 159px;
+}
+
+.DayInfo_infoTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  color: #E7E7EB;
+  margin: 0 0 6px 10px;
+}
+
+.DayInfo_divInfoData {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 75px;
+  color: #E7E7EB;
+  margin-left: 10px;
+}
+.DayInfo_divInfoData.gap > .DayInfo_data {
+  margin-right: 18px;
+}
+
+.DayInfo_extent {
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 42.26px;
+  color: #E7E7EB;
+}
+
+.DayInfo_divWindDirection {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  margin-top: 22px;
+  margin-left: 4.5px;
+}
+.DayInfo_windDir {
+  font-weight: 300;
+  font-size: 18px;
+  line-height: 16px;
+  color: #E7E7EB;
+}
+.DayInfo_divWindIcon, .DayInfo_divWindIcon > img {
+  height: 29.49px;
+  width: 29.49px;
+  pointer-events: none;
+}
+.DayInfo_divWindIcon {
+  background: #ffffff4d;
+  border-radius: 50%;
+}
+
+/* ---- Humidity ---- */
+.DayInfo_humidityInfo {
+  max-width: 328px;
+  width: 100%;
+  background-color: #1E213A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 0 23px 0;
+}
+.DayInfo_infoTitle.humidity {
+  margin: 0px 0px 4px 2px;
+}
+.DayInfo_divInfoData.humidity {
+  margin: 7px 1px 12px 0px;
+}
+
+.DayInfo_divHumidityLevel {
+  max-width: 229px;
+  width: 100%;
+}
+.DayInfo_divExtent {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 3px 2px 1px;
+}
+.DayInfo_humidityExtent {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #A09FB1;  
+}
+.DayInfo_humidityExtent.cincuenta {
+  margin-left: 19px;
+}
+
+.DayInfo_humidityBackLevel {
+  height: 8px;
+  width: 100%;
+  background: #E7E7EB;
+  border-radius: 80px;
+}
+.DayInfo_humidityLevel {
+  height: 8px;
+  background: #FFEC65;
+  border-radius: 80px;
+}
+.DayInfo_humidityFianl {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: center;
+  color: #A09FB1;
+  display: flex;
+  justify-content: flex-end;
+  margin-top:4px;
+}
