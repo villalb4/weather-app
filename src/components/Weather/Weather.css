@@ -166,15 +166,16 @@ h2 {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 22px 0 31px 0;
+  /* justify-content: center; */
+  padding: 22px 0 23px 0;
 }
 .Weather_infoTitle.humidity {
-  margin: 0px 0px 6px 3px;
+  margin: 0px 0px 4px 2px;
 }
 .Weather_divInfoData.humidity {
-  margin-top: 5px;
+  margin: 7px 1px 12px 0px;
 }
+/* --------------------- */
 .Weather_divHumidityLevel {
   max-width: 229px;
   width: 100%;
@@ -183,6 +184,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding: 0 3px 2px 1px;
 }
 .Weather_humidityExtent {
   font-weight: 700;
@@ -190,6 +192,9 @@ h2 {
   line-height: 14px;
   text-align: center;
   color: #A09FB1;  
+}
+.Weather_humidityExtent.cincuenta {
+  margin-left: 19px;
 }
 
 .Weather_humidityBackLevel {
@@ -209,5 +214,7 @@ h2 {
   line-height: 14px;
   text-align: center;
   color: #A09FB1;
-  margin-left: 95%;
+  display: flex;
+  justify-content: flex-end;
+  margin-top:4px;
 }
