@@ -11,7 +11,7 @@
   justify-content: flex-end;
   padding-right: 2px;
 }
-.Weather_divC, .Weather_divF {
+.Weather_divC, .Weather_divF,.Weather_divC.active, .Weather_divF.active {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -24,4 +24,11 @@
   line-height: 21px;
   text-align: center;
   color: #E7E7EB;
+  cursor: pointer;
+  transition: all ease 0.3s;
+}
+
+.Weather_divC.active, .Weather_divF.active {
+  background-color: #E7E7EB;
+  color: #110E3C;
 }
