@@ -1,10 +1,12 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import changeDegreeUtil from '../../../utils/changeDegreeUtil'
 import './Forecast.css'
 
 function Forecast() {
 
   const forecast = useSelector(e => e.weather.forecast)
+  const degrees = useSelector(e => e.weather.degree)
 
   return (
     <div className='Forecast'>
@@ -17,8 +19,8 @@ function Forecast() {
                 <img className='Forecast_forecastImg' src={e.weather} alt="" />
               </div>
                <div className='Forecast_forecastDivMinMax'>
-                <span className='Forecast_forecasMax'>{`${e.temp_max}°C`}</span>
-                <span className='Forecast_forecasMin'>{`${e.temp_min}°C`}</span>
+                <span className='Forecast_forecasMax'>{degrees === "°C" ? `${e.temp_max}${degrees}` : `${changeDegreeUtil(e.temp_max)}${degrees}`}</span>
+                <span className='Forecast_forecasMin'>{degrees === "°C" ? `${e.temp_max}${degrees}` : `${changeDegreeUtil(e.temp_max)}${degrees}`}</span>
               </div>
             </div>
           )
