@@ -3,6 +3,7 @@ import { getData } from './redux/thunks/getData';
 import { useDispatch } from 'react-redux';
 import Panel from './components/Panel/Panel';
 import Weather from './components/Weather/Weather';
+import SearchPanel from './components/SearchPanel/SearchPanel';
 
 function App() {
 
@@ -12,7 +13,10 @@ function App() {
 
   return (
     <div className="App">
-      <Panel />
+      <div className='App_panels'>
+        <SearchPanel />
+        <Panel />
+      </div>
       <Weather />
     </div>
   );
