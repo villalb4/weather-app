@@ -4,6 +4,12 @@
   border-radius: 12px;
   overflow: hidden;
   background-color: var(--background);
+  position: relative;
+}
+.App_panels {
+  position: relative;
+  max-width: 459px;
+  width: 100%;
 }
 
 ::-webkit-scrollbar {
