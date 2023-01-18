@@ -1,24 +1,47 @@
 .SearchPanel {
   position: absolute;
-  padding: 19.21px 46px 45px 47px;
+  padding: 12px 46px 45px 47px;
   background-color: var(--tone-background);
   height: 100%;
   max-width: 459px;
   width: 100%;
   z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: all ease 0.3s;
 }
+.SearchPanel.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+}
+
+.SearchPanel_divX {
+  height: 32px;
+  display: flex;
+  justify-content: flex-end;
+}
+.SearchPanel_divImgX {
+  cursor: pointer;
+}
+.SearchPanel_imgX {
+  height: 32px;
+  width: 32px;
+}
+
 
 .SearchPanel_form {
   display: flex;  
   justify-content: space-between;
   gap: 8px;
-  margin: 45.21px 0 58px 0;
+  margin: 38px 0 58px 0;
 }
 
 .SearchPanel_divInput {
   display: flex;
   border: 1px solid white;
-  padding: 12px;
+  padding: 4px 4px 4px 4px;
   max-width: 268px;
   width: 100%;
 }
@@ -26,6 +49,10 @@
 .SearchPanel_input {
   background-color: transparent;
   border: none;
+  outline: none;
+  width: 100%;
+  /* background-color: red; */
+  padding: 8px 0;
 }
 .SearchPanel_input::placeholder {
   font-weight: 500;
