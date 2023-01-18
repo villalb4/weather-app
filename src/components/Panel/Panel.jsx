@@ -1,6 +1,7 @@
 import './Panel.css'
 import { useSelector, useDispatch } from 'react-redux'
 import { getGeolocationData } from '../../redux/thunks/getData'
+import { openSearch } from '../../redux/slices/weather'
 // ------ icons/images ------ 
 import pint_drop from '../../assets/icons/pint_drop.svg'
 import geolocation from '../../assets/icons/geolocation.svg'
@@ -28,12 +29,16 @@ function Panel() {
     } 
   }
 
+  const handleOpen = () => {
+    dispatch(openSearch(true))
+  }
+
   return (
     <div className='Panel'>
       {/* ---- top panel ---- */}
       <div className='Panel_top'>
         <div className="Panel_divSearchButton">
-          <button className='Panel_searchButton'>Seach for places</button>
+          <button onClick={handleOpen} className='Panel_searchButton'>Seach for places</button>
         </div>
         <div className='Panel_divMyLocation'>
           <button className='Panel_myLocation' onClick={handleLocation}>
