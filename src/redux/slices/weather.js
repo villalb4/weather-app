@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   weather: {},
   forecast: [],
-  degree: "°C"
+  degree: "°C",
+  search: false
 }
 
 const weatherSlice = createSlice({
@@ -23,9 +24,12 @@ const weatherSlice = createSlice({
       } else {
         state.degree = action.payload
       }
+    },
+    openSearch: function(state, action) {
+      state.search = action.payload
     }
   }
 })
 
-export const { setWeather, setForecast, changeDegree } = weatherSlice.actions
+export const { setWeather, setForecast, changeDegree, openSearch } = weatherSlice.actions
 export default weatherSlice.reducer
