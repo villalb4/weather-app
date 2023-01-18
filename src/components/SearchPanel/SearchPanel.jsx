@@ -1,13 +1,26 @@
 import React from 'react'
 import './SearchPanel.css'
+import { useDispatch, useSelector } from 'react-redux'
+import { openSearch } from '../../redux/slices/weather'
+// ---- images ----
+import close from '../../assets/icons/close.svg'
 
 function SearchPanel() {
+
+  const dispatch = useDispatch()
+
+  const isOpen = useSelector(e => e.weather.search)
+
+  const handleClose = () => {
+    dispatch(openSearch(false))
+  }
+
   return (
-    <div className="SearchPanel">
+    <div className={isOpen === false ? "SearchPanel" : "SearchPanel active"}>
 
       <div className='SearchPanel_divX'>
-        <div className='SearchPanel_divImgX'>
-          <img className='SearchPanel_imgX' src="" alt="" />
+        <div onClick={handleClose} className='SearchPanel_divImgX'>
+          <img className='SearchPanel_imgX' src={close} alt="" />
         </div>
       </div>
 
