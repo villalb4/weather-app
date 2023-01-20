@@ -1,4 +1,4 @@
-import { setWeather, setForecast } from "../slices/weather";
+import { setWeather, setForecast, setSearchLocation } from "../slices/weather";
 import weatherApiAdapter from "../../adapters/weatherApiResponse";
 import forecastAdapter from "../../adapters/fiveDays";
 
@@ -53,5 +53,26 @@ export const getGeolocationData= (coords) => {
 
     dispatch(setWeather(filteredResponse))
     dispatch(getFiveDaysData(filteredResponse.name))
+  }
+}
+
+export const searchLocationData = (location) => {
+  return async (dispatch, getState) => {
+    const apiData = await fetch(`http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_WEATHERAPI_KEY}&q=${location}&aqi=no`, {
+      headers: { "Content-Type": "application/json" }
+    }).then(response => response.json()).catch(error => error)
+
+    const formatData = (response) => {
+      if(response.error) {
+        return response.error
+      }
+      return {
+        country: response.location.country,
+        name: response.location.name,
+        display: `${response.location.name}, ${response.location.country.slice(0, 3)}`
+      }
+    }
+
+    dispatch(setSearchLocation(formatData(apiData)))
   }
 }
