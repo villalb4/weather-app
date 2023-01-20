@@ -1,11 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import windDir from '../../../utils/windDir'
 import './DayInfo.css'
 import wind_dir from '../../../assets/icons/wind_dir.svg'
 
 function DayInfo() {
 
   const weather = useSelector(e => e.weather.weather)
+
+  console.log(windDir(weather.wind_dir))
 
   return (
     <div className='DayInfo'>
@@ -19,7 +22,10 @@ function DayInfo() {
             <span className='DayInfo_extent'>mph</span>
           </div>
           <div className='DayInfo_divWindDirection'>
-            <div className='DayInfo_divWindIcon'>
+            <div 
+              className='DayInfo_divWindIcon' 
+              style={{transform:`rotate(${windDir(weather.wind_dir)}deg`}}
+            >
               <img src={wind_dir} alt="" />
             </div>
             <span className='DayInfo_windDir'>{weather.wind_dir}</span>
