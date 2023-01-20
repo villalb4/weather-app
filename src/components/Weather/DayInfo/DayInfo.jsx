@@ -8,8 +8,6 @@ function DayInfo() {
 
   const weather = useSelector(e => e.weather.weather)
 
-  console.log(windDir(weather.wind_dir))
-
   return (
     <div className='DayInfo'>
       <h2>Today's Hightlights</h2>
