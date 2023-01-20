@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { openSearch } from '../../redux/slices/weather'
 // ---- images ----
 import close from '../../assets/icons/close.svg'
+import search from '../../assets/icons/search.svg'
 
 function SearchPanel() {
 
@@ -26,8 +27,8 @@ function SearchPanel() {
 
       <form className='SearchPanel_form'>
         <div className='SearchPanel_divInput'>
-          <div>
-            <img src="" alt="" />
+          <div className='SearchPanel_divImgSearch'>
+            <img src={search} alt="" />
           </div>
           <input className='SearchPanel_input' type="text" placeholder='search location'/>
         </div>
