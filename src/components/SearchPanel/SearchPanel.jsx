@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './SearchPanel.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { openSearch } from '../../redux/slices/weather'
+import { searchLocationData } from '../../redux/thunks/getData'
 // ---- images ----
 import close from '../../assets/icons/close.svg'
 import search from '../../assets/icons/search.svg'
@@ -10,11 +11,25 @@ function SearchPanel() {
 
   const dispatch = useDispatch()
 
+  const [searchInput, setSearchInput] = useState('')
+
   const isOpen = useSelector(e => e.weather.search)
 
   const handleClose = () => {
     dispatch(openSearch(false))
   }
+
+  const handleChange = (e) => {
+    setSearchInput(e.target.value)
+  }
+
+  const handleSearch = (e) => {
+    e.preventDefault()
+    dispatch(searchLocationData(searchInput))
+    setSearchInput('')
+  }
+
+  const results = useSelector(e => e.weather.searchLocation)
 
   return (
     <div className={isOpen === false ? "SearchPanel" : "SearchPanel active"}>
@@ -30,12 +45,25 @@ function SearchPanel() {
           <div className='SearchPanel_divImgSearch'>
             <img src={search} alt="" />
           </div>
-          <input className='SearchPanel_input' type="text" placeholder='search location'/>
+          <input 
+            onChange={handleChange}
+            value={searchInput}
+            className='SearchPanel_input' 
+            type="text" 
+            placeholder='search location'
+          />
         </div>
-        <input className='SearchPanel_submit' type="submit" value="Search"/>
+        <input onClick={handleSearch} className='SearchPanel_submit' type="submit" value="Search"/>
       </form>
 
-      <div className='SearchPanel_div'></div>
+      <div className='SearchPanel_divResult'>
+        {
+          results && 
+            <div className='SearchPanel_result'>
+              <span>{results.display}</span>
+            </div>
+        }
+      </div>
     </div>
   )
 }
