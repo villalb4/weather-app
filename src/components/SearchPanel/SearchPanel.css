@@ -40,10 +40,18 @@
 
 .SearchPanel_divInput {
   display: flex;
+  align-items: center;
   border: 1px solid white;
-  padding: 4px 4px 4px 4px;
+  padding: 4px;
   max-width: 268px;
   width: 100%;
+}
+
+.SearchPanel_divImgSearch {
+  height: 29px;
+  width: 29px;
+  margin: 4px 12px 0 7px;
+  pointer-events: none;
 }
 
 .SearchPanel_input {
