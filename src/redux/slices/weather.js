@@ -4,7 +4,8 @@ const initialState = {
   weather: {},
   forecast: [],
   degree: "°C",
-  search: false
+  search: false,
+  searchLocation: {}
 }
 
 const weatherSlice = createSlice({
@@ -27,9 +28,12 @@ const weatherSlice = createSlice({
     },
     openSearch: function(state, action) {
       state.search = action.payload
+    },
+    setSearchLocation: function(state, action) {
+      state.searchLocation = action.payload
     }
   }
 })
 
-export const { setWeather, setForecast, changeDegree, openSearch } = weatherSlice.actions
+export const { setWeather, setForecast, changeDegree, openSearch, setSearchLocation } = weatherSlice.actions
 export default weatherSlice.reducer
