@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import './SearchPanel.css'
 import { useDispatch, useSelector } from 'react-redux'
 import { openSearch } from '../../redux/slices/weather'
-import { searchLocationData } from '../../redux/thunks/getData'
+import { searchLocationData, getData } from '../../redux/thunks/getData'
 // ---- images ----
 import close from '../../assets/icons/close.svg'
 import search from '../../assets/icons/search.svg'
@@ -27,6 +27,12 @@ function SearchPanel() {
     e.preventDefault()
     dispatch(searchLocationData(searchInput))
     setSearchInput('')
+  }
+
+  const handleClick = (e) => {
+    const city = e.target.id
+    dispatch(getData(city))
+    dispatch(openSearch(false))
   }
 
   const results = useSelector(e => e.weather.searchLocation)
@@ -59,7 +65,7 @@ function SearchPanel() {
       <div className='SearchPanel_divResult'>
         {
           results && 
-            <div className='SearchPanel_result'>
+            <div className='SearchPanel_result' onClick={handleClick} id={results.name}>
               <span>{results.display}</span>
             </div>
         }
