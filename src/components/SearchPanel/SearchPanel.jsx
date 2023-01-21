@@ -6,6 +6,7 @@ import { searchLocationData, getData } from '../../redux/thunks/getData'
 // ---- images ----
 import close from '../../assets/icons/close.svg'
 import search from '../../assets/icons/search.svg'
+import direction from '../../assets/icons/direction.svg'
 
 function SearchPanel() {
 
@@ -64,9 +65,14 @@ function SearchPanel() {
 
       <div className='SearchPanel_divResult'>
         {
-          results && 
+          results.display && 
             <div className='SearchPanel_result' onClick={handleClick} id={results.name}>
-              <span>{results.display}</span>
+              <div>
+                <span>{results.display}</span>
+              </div>
+              <div className='SearchPanel_divDirection'>
+                <img src={direction} alt="" />
+              </div>
             </div>
         }
       </div>
