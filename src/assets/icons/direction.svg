@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg width="100%" height="100%" viewBox="0 0 24 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
-    <g transform="matrix(1,0,0,1,-85.4641,-50.438)">
-        <g transform="matrix(0.0575902,0,0,0.0575902,60.1078,36.6239)">
-            <rect x="440.288" y="239.869" width="416.738" height="417.528" style="fill:none;"/>
-            <g transform="matrix(1,0,0,1,-2.42926,2.87209)">
-                <g>
-                    <g transform="matrix(1,0,0,1,-1,0)">
-                        <path d="M615.915,365.394L696.283,445.761" style="fill:none;stroke:rgb(97,100,116);stroke-width:34px;"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
+<svg clip-rule="evenodd" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="1.5" version="1.1" viewBox="0 0 24 25" xml:space="preserve" xmlns="http://www.w3.org/2000/svg">
+    <g transform="translate(-85.464 -50.438)">
+        <g transform="matrix(.05759 0 0 .05759 60.108 36.624)">
+            <rect x="440.29" y="239.87" width="416.74" height="417.53" fill="none"/>
+            <g transform="translate(-2.4293 2.8721)">
+                
+                    <g transform="translate(-1)">
+                        <path d="m615.92 365.39 80.368 80.367" fill="none" stroke="#616474" stroke-width="34px"/>
                     </g>
-                    <g transform="matrix(1,0,0,-1,-1,891.523)">
-                        <path d="M615.915,365.394L696.283,445.761" style="fill:none;stroke:rgb(97,100,116);stroke-width:34px;"/>
+                    <g transform="matrix(1 0 0 -1 -1 891.52)">
+                        <path d="m615.92 365.39 80.368 80.367" fill="none" stroke="#616474" stroke-width="34px"/>
                     </g>
-                </g>
+                
             </g>
         </g>
     </g>
