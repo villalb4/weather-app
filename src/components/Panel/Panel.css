@@ -130,3 +130,13 @@
   margin-top: 1px;
 }
 
+@media screen and (max-width: 1059px) {
+  .Panel {
+    max-width: 1059px;
+    width: 100%;
+  }
+  .Panel_midBackground {
+    right: 50% ;
+    transform: translateX(50%);
+  }
+}

@@ -1,5 +1,6 @@
 .Weather {
   max-width: 764px;
+  min-width: 670px;
   width: 100%;
   margin: 42px auto 0 auto;
   padding: 0 30px;
