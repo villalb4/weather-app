@@ -93,4 +93,5 @@
   font-size: 16px;
   line-height: 19px;
   color: #E7E7EB;
+  pointer-events: none;
 }
