@@ -86,12 +86,27 @@
 
 .SearchPanel_result {
   border: 1px solid #616475;
-  padding: 23px 8px 22px 12px;
+  padding: 19px 7px 19px 12px;
+  cursor: pointer;
+  transition: all ease 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-.SearchPanel_result > span {
+.SearchPanel_result:hover {
+  border: 1px solid #8f919a;
+}
+.SearchPanel_result > div > span  {
   font-weight: 500;
   font-size: 16px;
   line-height: 19px;
   color: #E7E7EB;
+  pointer-events: none;
+}
+
+.SearchPanel_divDirection {
+  height: 24px;
+  max-width: 24px;
+  width: 100%;
   pointer-events: none;
 }
